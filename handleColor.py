@@ -1,12 +1,13 @@
 from random import randint
 import json
 import ioUtils
+import findBestFit
 
 colorTTL = 1000
 currentColor = None
 
-
 def requestColor():
+    global currentColor
     currentColor = createColor()
     return currentColor
 
@@ -40,10 +41,12 @@ def colorToText(color):
     return "#" + ''.join("{:02X}".format(a) for a in color)
 
 
-
 def learnColor(color, RGB):
-    print(color, RGB)
     ioUtils.decTTLs()
     learned = ioUtils.getLearned()
     learned[color].append([colorCompact(RGB), colorTTL])
     ioUtils.setLearned(learned)
+
+
+def requestBestFit():
+    return findBestFit.findBestFit(currentColor)

@@ -12,6 +12,7 @@ class ColorGUI:
         self.label.pack(padx=10, pady=10)
         self.colorFrame = tk.Frame(width=100, height=100)
         self.colorFrame.pack(padx=10, pady=10)
+        self.predictLabel = tk.Label(self.root)
         self.getColor()
         self.buttonFrame = tk.Frame()
         # Tkinter does not really support these kinds of buttons so this part of the code is sloppy.
@@ -66,6 +67,7 @@ class ColorGUI:
 
         self.buttonFrame.pack()
 
+        self.predictLabel.pack()
         self.root.mainloop()
 
     def teachColor(self, color, RGB):
@@ -76,3 +78,4 @@ class ColorGUI:
         self.colorRGB = handleColor.requestColor()
         self.colorText = handleColor.colorToText(self.colorRGB)
         self.colorFrame.config(bg=self.colorText)
+        self.predictLabel.config(text=f"I think it's {handleColor.requestBestFit().lower()}!")
