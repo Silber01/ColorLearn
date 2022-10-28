@@ -28,11 +28,8 @@ def findBestFit(color):
     return fitsRanked[0][0]
 
 
-
-
 def getDistance(color, other):
     rRes = color[0] - other[0]
     gRes = color[1] - other[1]
     bRes = color[2] - other[2]
     return (rRes ** 2) + (gRes ** 2) + (bRes ** 2)
-
