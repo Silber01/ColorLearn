@@ -6,10 +6,8 @@ import makeGraph
 
 
 colorTTL = 1000
-currentColor = None
 
 def requestColor():
-    global currentColor
     currentColor = createColor()
     # graphPoints()
     return currentColor
@@ -51,7 +49,7 @@ def learnColor(color, RGB):
     ioUtils.setLearned(learned)
 
 
-def requestBestFit():
+def requestBestFit(currentColor):
     return findBestFit.findBestFit(currentColor)
 
 
