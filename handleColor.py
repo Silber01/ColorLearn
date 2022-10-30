@@ -2,10 +2,10 @@ from random import randint
 import json
 import ioUtils
 import findBestFit
-import makeGraph
 
 
 colorTTL = 1000
+
 
 def requestColor():
     currentColor = createColor()
@@ -51,7 +51,3 @@ def learnColor(color, RGB):
 
 def requestBestFit(currentColor):
     return findBestFit.findBestFit(currentColor)
-
-
-def graphPoints():
-    makeGraph.makeGraph()
