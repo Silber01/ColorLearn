@@ -39,6 +39,7 @@ def colorDecompact(compacted):
 
 
 def colorToText(color):
+
     return "#" + ''.join("{:02X}".format(a) for a in color)
 
 
@@ -51,3 +52,5 @@ def learnColor(color, RGB):
 
 def requestBestFit(currentColor):
     return findBestFit.findBestFit(currentColor)
+
+requestBestFit((255, 0, 0))

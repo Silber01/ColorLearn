@@ -78,4 +78,4 @@ class ColorGUI:
         self.colorRGB = handleColor.requestColor()
         self.colorText = handleColor.colorToText(self.colorRGB)
         self.colorFrame.config(bg=self.colorText)
-        self.predictLabel.config(text=f"I think it's {handleColor.requestBestFit(self.colorRGB).lower()}!")
+        self.predictLabel.config(text=f"I think it's {handleColor.requestBestFit(self.colorRGB)[0].lower()}!")

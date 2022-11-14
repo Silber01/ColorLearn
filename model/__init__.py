@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_restful import Api, Resource
 from flask import send_file
+import sys
+sys.path.append('../learnColor')
 from handleColor import *
 from makeGraph import makeGraph
 
@@ -14,7 +16,7 @@ class RequestColor(Resource):
 
 class GetBestFit(Resource):
     def get(self, r, g, b):
-        return {"color": requestBestFit((r, g, b))}
+        return requestBestFit((r, g, b))
 
 class LearnColor(Resource):
     def post(self, r, g, b, color):
@@ -24,7 +26,7 @@ class LearnColor(Resource):
 class GetGraph(Resource):
     def get(self):
         makeGraph()
-        return send_file("graph.png")
+        return send_file("../graph.png")
 
 
 api.add_resource(RequestColor, "/requestColor")
